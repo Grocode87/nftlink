@@ -11,6 +11,12 @@ const Username = ({ userData }) => {
 export async function getServerSideProps(context) {
     const username = context.query.username
 
+
+    // Username empty: redirect to index.js (landing page)
+    if(username == "") {
+      return {params:{}, redirect:"/"}
+    }
+
     // TODO: Call API and get user info
     // Currently just get from json dummy data
     let userData;
@@ -27,7 +33,7 @@ export async function getServerSideProps(context) {
           notFound: true,
         };
       }
-      
+
     return {
       props: {
           userData: userData

@@ -9,12 +9,24 @@ const Profile = ({ userData }) => {
            <p className='text-3xl font-bold'>{userData.displayName}</p>
            <p className='bg-gray-100 rounded-full inline-block px-2 py-1 text-gray-500'>{userData.address.substring(0,4) + "... " + userData.address.substring(userData.address.length - 4)}</p>
            <p>{userData.description}</p>
-           <div className=''>
-               
-               <Image src="/images/social/twitter.png" width={20} height={20}></Image>
-               <Image src="/images/social/rarible.png" width={20} height={20}></Image>
-               <Image src="/images/social/website.png" width={20} height={20}></Image>
-               <Image src="/images/social/email.png" width={20} height={20}></Image>
+           <div className='pt-4'>
+               {userData.socials.twitter && (
+                    <a className="pr-2"href={`https://twitter.com/${userData.socials.twitter}`}>
+                        <Image src="/images/social/twitter.png" width={20} height={20}/>
+                    </a>
+               )}
+
+                {userData.socials.rarible && (
+                    <a className="pr-2"href={`https://rarible.com//${userData.socials.rarible}`}>
+                        <Image src="/images/social/rarible.png" width={20} height={20}/>
+                    </a>
+               )}
+
+                {userData.socials.website && (
+                    <a className="pr-2"href={`https://${userData.socials.website}`}>
+                        <Image src="/images/social/website.png" width={20} height={20}/>
+                    </a>
+               )}
            </div>
         </div>
     )
