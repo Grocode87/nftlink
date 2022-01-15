@@ -9,7 +9,7 @@ export default function Home() {
       </Head>
     
       <main>
-        <h1 className="text-2xl">
+        <h1 className="text-sm">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
       </main>

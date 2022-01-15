@@ -1,0 +1,32 @@
+[
+    {
+        "address": "0xD80825Aa0f257247c5853a6e1d6e485E14Cf8867",
+        "username": "colingrob", 
+        "displayName": "Colin Grob",
+        "email": "colin@grob.ca",
+        "description": "Feel free to send money to my wallet address",
+        "socials": {
+            "twitter": "colingrob", 
+            "rarible": "grobcolin", 
+            "website": "colin.grob.ca"
+        },
+        "image": "https://img.rarible.com/prod/image/upload/t_image_big/prod-itemImages/0x60f80121c31a0d46b5279700f9df786054aa5ee5:1155054/18ccec5c",
+        "bannerImage": "",
+        "nfts": [
+            {
+                "name": "Soccer Doge #3577",
+                "image": "https://soccerdogeclubnft.s3.us-west-1.amazonaws.com/imgs/sdc-img-3577.png",
+                "collection": "Soccer Doge Club",
+                "price": 10.6,
+                "auctionLive": false
+            },
+            {
+                "name": "Woman #7087",
+                "image": "https://img.rarible.com/prod/image/upload/t_image_big/prod-itemImages/0xe785e82358879f061bc3dcac6f0444462d4b5330:7087/2306383",
+                "collection": "World of Women",
+                "price": 11.69,
+                "auctionLive": false
+            }
+        ]
+    }
+]
