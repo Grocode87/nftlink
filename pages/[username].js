@@ -27,10 +27,7 @@ export async function getServerSideProps(context) {
           notFound: true,
         };
       }
-
-
-
-
+      
     return {
       props: {
           userData: userData
