@@ -78,9 +78,11 @@ const Dashboard = ({ user }) => {
         {/** Preview */}
         <div className="border-l-2 p-16 w-1/2 flex flex-col items-center">
           <div className="fixed text-center">
-            <p className="font-bold text-lg pb-4">
-              nftin.bio/{userData.username}
-            </p>
+            <button onClick={() => {Router.push("/" + userData.username)}}>
+              <div href={`localhost:3000/${userData.user}`}className="font-bold text-lg pb-4">
+                nftin.bio/{userData.username}
+              </div>
+            </button>
             <div className="overflow-scroll h-128 w-72 rounded-3xl border-8 border-black">
               <GalleryPreview userData={userData} />
             </div>
@@ -133,7 +135,7 @@ export async function getServerSideProps({req, res}) {
         rarible: "",
         website: "",
       },
-      image: "https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png",
+      image: "https://backalleycrossfit.com/wp-content/uploads/2016/09/profile-placeholder-300x300.png",
       nfts: data.nfts,
     }
   } else {
