@@ -14,6 +14,7 @@
         "bannerImage": "",
         "nfts": [
             {
+                "id": "0",
                 "name": "Soccer Doge #3577",
                 "image": "https://soccerdogeclubnft.s3.us-west-1.amazonaws.com/imgs/sdc-img-3577.png",
                 "collection": "Soccer Doge Club",
@@ -21,6 +22,7 @@
                 "auctionLive": false
             },
             {
+                "id": "1",
                 "name": "Woman #7087",
                 "image": "https://img.rarible.com/prod/image/upload/t_image_big/prod-itemImages/0xe785e82358879f061bc3dcac6f0444462d4b5330:7087/2306383",
                 "collection": "World of Women",

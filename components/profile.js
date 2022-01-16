@@ -27,7 +27,9 @@ const Profile = ({ userData }) => {
                         <Image src="/images/social/website.png" width={20} height={20}/>
                     </a>
                )}
+               
            </div>
+           <a className='sm:hidden md:block text-sm text-center text-gray-400' href="/">Made with NFTinBio</a>
         </div>
     )
 }

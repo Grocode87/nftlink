@@ -8,7 +8,7 @@ const GalleryPreview = ({ userData }) => {
     return (
         <>
             {/* Banner */ }
-            <div className='h-40 -mb-28 bg-blue-400 w-full -z-10'/>
+            <div className='h-40 -mb-28 bg-gradient-to-r from-cyan-500 to-blue-500 w-full -z-10'/>
             <div className='flex flex-col z-10'>
                 {/* User profile */}
                 <div className='w-full'>
@@ -18,7 +18,7 @@ const GalleryPreview = ({ userData }) => {
                         <img className="rounded-full mb-2" src={userData.image} />
                         </div>
                         <p className='text-3xl font-bold'>{userData.displayName}</p>
-                        <p className='bg-gray-100 rounded-full inline-block px-2 py-1 text-gray-500'>{userData.address.substring(0,4) + "... " + userData.address.substring(userData.address.length - 4)}</p>
+                        <p className='bg-gray-100 rounded-full inline-block px-2 py-1 text-gray-500 text-xs'>{userData.address.substring(0,4) + "... " + userData.address.substring(userData.address.length - 4)}</p>
                         <p>{userData.description}</p>
                         <div className='pt-4'>
                             {userData.socials.twitter && (
@@ -39,6 +39,7 @@ const GalleryPreview = ({ userData }) => {
                                     </a>
                             )}
                         </div>
+                        
                     </div>
 
                 </div>
@@ -60,7 +61,11 @@ const GalleryPreview = ({ userData }) => {
                     })}
                     
                 </div>
-            </div>
+                             
+   {/* Our logo */}
+   <a className='text-sm text-center text-gray-400 my-4' href="/">Made with NFTinBio</a>
+
+               </div>
         </>
     )
 }
