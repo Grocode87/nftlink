@@ -116,6 +116,7 @@ export async function getServerSideProps({req, res}) {
   const { data } = await axios.post("https://nftinbio.vercel.app/api/get-rarible", {
     address: address,
   });
+
   
   const demoNFTS = [
     {
@@ -159,8 +160,9 @@ export async function getServerSideProps({req, res}) {
   } else {
     // or, existing user is coming back, loop through retrieved nfts and add them to state if they are new
     console.log("welcome back buddy, imma check to see if you've bought any new nfts")
-    user.nfts = user.nfts.concat(demoNFTS)
+
     let nftNames = user.nfts.map((nft) => {return nft.name})
+
     data.nfts.concat(demoNFTS).forEach(nft => {
       if(nftNames.indexOf(nft.name) == -1) {
         user.nfts.push(nft)
@@ -168,7 +170,6 @@ export async function getServerSideProps({req, res}) {
       }
     });
     user.image = "https://backalleycrossfit.com/wp-content/uploads/2016/09/profile-placeholder-300x300.png"
-    user.nfts = data.nfts
   }
 
   //update db with this info
