@@ -66,7 +66,7 @@ const GalleryPreview = ({ userData }) => {
                             <p className='text-sm text-gray-400 px-2'>{nft.collection}</p>
                             <h2 className='text-md font-bold px-2'>{nft.name}</h2>
                             <div className='flex w-full justify-between items-center px-2'>
-                                <p className='text-sm text-gray-400'>Current bid:</p>
+                                <p className='text-sm text-gray-400'>Price:</p>
                                 {/* Bid price */}
                                 <p><span className='font-bold'>{nft.price}</span> <span className='text-gray-400'>ETH</span></p>
                             </div>
