@@ -159,8 +159,9 @@ export async function getServerSideProps({req, res}) {
   } else {
     // or, existing user is coming back, loop through retrieved nfts and add them to state if they are new
     console.log("welcome back buddy, imma check to see if you've bought any new nfts")
+    user.nfts = user.nfts.concat(demoNFTS)
     let nftNames = user.nfts.map((nft) => {return nft.name})
-    data.nfts.forEach(nft => {
+    data.nfts.concat(demoNFTS).forEach(nft => {
       if(nftNames.indexOf(nft.name) == -1) {
         user.nfts.push(nft)
         console.log("found new nft, adding")
