@@ -117,6 +117,24 @@ export async function getServerSideProps({req, res}) {
     address: address,
   });
   
+  const demoNFTS = [
+    {
+      id: "0xc1caf0c19a8ac28c41fe59ba6c754e4b9bd54de9:9082",
+      name: "CryptoSkull #9082",
+      image: "https://img.rarible.com/prod/image/upload/t_image_big/prod-itemImages/0xc1caf0c19a8ac28c41fe59ba6c754e4b9bd54de9:9082/9aded2c5",
+      collection: "CryptoSkulls",
+      price: 3,
+      auctionLive: false,
+    },
+    {
+      id: "0x6632a9d63e142f17a668064d41a21193b49b41a0:6396",
+      name: "Prime Ape #6396",
+      image: "https://img.rarible.com/prod/image/upload/t_image_big/prod-itemImages/0x6632a9d63e142f17a668064d41a21193b49b41a0:6396/5ccbe330",
+      collection: "Prime Apes",
+      price: 3.3,
+      auctionLive: false,
+    },
+  ]
 
   let user = await getItemByAddress(address);
 
@@ -136,7 +154,7 @@ export async function getServerSideProps({req, res}) {
         website: "",
       },
       image: "https://backalleycrossfit.com/wp-content/uploads/2016/09/profile-placeholder-300x300.png",
-      nfts: data.nfts,
+      nfts: data.nfts.concat(demoNFTS),
     }
   } else {
     // or, existing user is coming back, loop through retrieved nfts and add them to state if they are new
