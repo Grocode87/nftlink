@@ -111,7 +111,7 @@ export async function getServerSideProps({req, res}) {
   }
 
   // get nft's for address
-  const { data } = await axios.post("http://localhost:3000//api/get-rarible", {
+  const { data } = await axios.post("https://nftinbio.vercel.app/api/get-rarible", {
     address: address,
   });
   
