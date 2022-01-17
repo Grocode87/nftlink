@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "all": "^0.0.0",
     "autoprefixer": "^10.4.2",
     "axios": "^0.24.0",
     "cookie-cutter": "^0.2.0",

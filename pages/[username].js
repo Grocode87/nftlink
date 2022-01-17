@@ -1,52 +1,50 @@
 import React from "react";
 import Gallery from "../components/gallery";
-import dummyData from '../scripts/dummyData.json'
+import dummyData from "../scripts/dummyData.json";
 import { getItemByUsername } from "../scripts/firebase";
 
 const Username = ({ userData }) => {
-  return <>
-    <Gallery userData={userData}/>
-  </>
-}
+  return (
+    <>
+      <Gallery userData={userData} />
+    </>
+  );
+};
 
 export async function getServerSideProps(context) {
-    const username = context.query.username
+  const username = context.query.username;
 
+  // Username empty: redirect to index.js (landing page)
+  if (username == "") {
+    return { params: {}, redirect: "/" };
+  }
 
-    // Username empty: redirect to index.js (landing page)
-    if(username == "") {
-      return {params:{}, redirect:"/"}
-    }
+  // TODO: Call API and get user info
+  // Currently just get from json dummy data
+  let userData;
 
-
-    // TODO: Call API and get user info
-    // Currently just get from json dummy data
-    let userData;
-    
-    /**dummyData.forEach(user => {
+  /**dummyData.forEach(user => {
         if(username == user.username) {
             userData = user;
         }
     
     }); */
 
-    userData = await getItemByUsername(username)
-    console.log(userData)
+  userData = await getItemByUsername(username);
+  console.log(userData);
 
-
-    // user not found: return 404
-    if (!userData) {
-        return {
-          notFound: true,
-        };
-      }
-
+  // user not found: return 404
+  if (!userData) {
     return {
-      props: {
-          userData: userData
-        }, // will be passed to the page component as props
-    }
+      notFound: true,
+    };
   }
-  
 
-export default Username; 
+  return {
+    props: {
+      userData: userData,
+    }, // will be passed to the page component as props
+  };
+}
+
+export default Username;
