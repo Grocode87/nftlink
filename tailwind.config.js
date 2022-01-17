@@ -12,13 +12,17 @@ module.exports = {
       },
       height: {
         '128': '32rem',
-        '150': '40rem'
+        '150': '36rem'
       },
       borderWidth: {
         '2': '2px',
-        '20': '20px',
         '8': '8px',
+        '12': '12px',
+        '20': '20px',
       },
+      borderRadius: {
+        '4xl': '38px',
+      }
       
     },
   },

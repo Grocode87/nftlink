@@ -138,8 +138,10 @@ const Dashboard = ({ user }) => {
               />
             )}
 
-            <div className="overflow-scroll h-128 w-72 rounded-3xl border-8 border-black bg-white">
+            <div className="rounded-4xl overflow-hidden border-12 border-black">
+            <div className="overflow-y-scroll overflow-x-hidden rounded-3xl h-150 w-72 bg-white">
               <GalleryPreview userData={userData} />
+            </div>
             </div>
           </div>
         </div>
