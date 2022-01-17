@@ -4,15 +4,18 @@ import Router from "next/router";
 import { ethers } from "ethers";
 import Image from "next/image";
 import Link from "next/link";
-import cookieCutter from 'cookie-cutter'
+import cookieCutter from "cookie-cutter";
 
 export default function Home() {
   const [account, setAccount] = useState("");
   const [address, setAddress] = useState("");
 
   useEffect(() => {
-    window.ethereum == 'undefined' && alert("Please install Metamask and use Chrome browser to use this application.");
-  })
+    window.ethereum == "undefined" &&
+      alert(
+        "Please install Metamask and use Chrome browser to use this application."
+      );
+  });
 
   useEffect(() => {
     if (address !== "") {
@@ -29,10 +32,10 @@ export default function Home() {
 
         // it doesn't create metamask popup, remove user from localstorage
         if (addresses.length > 0) {
-          setAddress(cookieCutter.get('address'));
+          setAddress(cookieCutter.get("address"));
         } else {
           setAddress("");
-          cookieCutter.set('address', "")
+          cookieCutter.set("address", "");
         }
       } catch (err) {
         console.error(err);
@@ -55,7 +58,7 @@ export default function Home() {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         setAddress(await signer.getAddress());
-        cookieCutter.set('address', await signer.getAddress())
+        cookieCutter.set("address", await signer.getAddress());
       } catch (err) {
         console.error(err);
       }
@@ -99,13 +102,13 @@ export default function Home() {
             Showcase Your Collection of NFTs
           </p>
           <p className="mb-10 mt-5 md:mb-7.5 sm:mb-5 text-2xl md:text-xl sm:text-xl pt-4 sm:pt-2">
-            Connect your social plarforms to all of your NFTs with just one link
-            in the biography.
+            Connect your social platforms to all of your NFTs with just one
+            link!
           </p>
 
           <p className="mb-20 text-2xl md:text-1xl sm:text-xl  pt-4 sm:pt-2">
-            Use your NFTinBio on any social platform where your audience is,
-            help them bid and discover all your collectibles.
+            Use your custom link on any social platform where your audience is
+            and make it easier for them to discover all your collectibles.
           </p>
           {address ? (
             <a
