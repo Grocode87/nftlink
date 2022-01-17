@@ -95,38 +95,44 @@ const GalleryPreview = ({ userData }) => {
             </div>
           </div>
         </div>
-        {/* Actual NFTs */}
-        <p className="font-bold text-xl pb-4 pt-8">NFTS</p>
-        <div className="grid grid-cols-1 gap-8 content-center align-center px-4">
-          {userData.nfts?.map((nft) => {
-            return (
-              <div className="m-auto flex-col group hover:cursor-pointer text-left p-4 border shadow-lg rounded-xl">
-                <div className="px-8">
-                  <img
-                    className="w-full rounded-2xl mb-2 group-hover:drop-shadow-lg ease-in duration-200"
-                    src={nft.image}
-                  />
-                </div>
-                <p className="text-xs text-gray-400 px-2">{nft.collection}</p>
-                <h2 className="text-sm font-bold px-2">{nft.name}</h2>
-                <div className="flex w-full justify-between items-center px-2">
-                  <p className="text-xm text-gray-400 pt-2">Price:</p>
-                  {/* Bid price */}
-                  <p>
-                    <span className="font-bold">{nft.price}</span>{" "}
-                    <span className="text-gray-400">ETH</span>
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+        {userData.nfts.length > 0 && (
+          <div>
+            {/* Actual NFTs */}
+            <p className="font-bold text-xl pb-4 pt-8">NFTS</p>
+            <div className="grid grid-cols-1 gap-8 content-center align-center px-4">
+              {userData.nfts?.map((nft) => {
+                return (
+                  <div className="m-auto flex-col group hover:cursor-pointer text-left p-4 border shadow-lg rounded-xl">
+                    <div className="px-8">
+                      <img
+                        className="w-full rounded-2xl mb-2 group-hover:drop-shadow-lg ease-in duration-200"
+                        src={nft.image}
+                      />
+                    </div>
+                    <p className="text-xs text-gray-400 px-2">
+                      {nft.collection}
+                    </p>
+                    <h2 className="text-sm font-bold px-2">{nft.name}</h2>
+                    <div className="flex w-full justify-between items-center px-2">
+                      <p className="text-xm text-gray-400 pt-2">Price:</p>
+                      {/* Bid price */}
+                      <p>
+                        <span className="font-bold">{nft.price}</span>{" "}
+                        <span className="text-gray-400">ETH</span>
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
-      {/* Our logo */}
-      <a className="text-sm text-center text-gray-400 my-4" href="/">
-        Made with NFTree
-      </a>
+        {/* Our logo */}
+        <a className="text-xs text-center text-gray-400 my-4" href="/">
+          Made with <span className="text-blue-600 font-bold">NFTinBio</span>
+        </a>
+      </div>
     </>
   );
 };

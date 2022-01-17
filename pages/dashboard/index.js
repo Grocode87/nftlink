@@ -39,6 +39,11 @@ const Dashboard = ({ user }) => {
       id: "account",
       name: "Account",
     },
+    ,
+    {
+      id: "analytics",
+      name: "Analytics",
+    },
   ];
   const [currTab, setCurrTab] = useState("nft");
 
@@ -54,7 +59,17 @@ const Dashboard = ({ user }) => {
   return (
     <div className="bg-gray-50">
       {/* Header */}
-      <div className="fixed w-full shadow-lg flex items-center z-50 bg-white">
+      <div className="fixed w-full shadow-lg z-50 bg-white">
+        <div className="w-full flex items-center p-4">
+          <Image
+            src="/landing-page/Logo.jpeg"
+            className="md:scale-100"
+            width={30}
+            height={30}
+          />
+          <div className="text-3xl font-semibold pl-4">NFTinBio</div>
+        </div>
+        <div className="flex items-center"></div>
         {tabs.map((tab) => {
           return (
             <button
@@ -75,7 +90,7 @@ const Dashboard = ({ user }) => {
         })}
       </div>
 
-      <div className="pt-16 flex">
+      <div className="pt-32 flex m-auto">
         <div className="w-1/2">
           {currTab == "nft" && (
             <ManageNfts
