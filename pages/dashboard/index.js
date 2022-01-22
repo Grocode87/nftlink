@@ -214,8 +214,7 @@ export async function getServerSideProps({ req, res }) {
         rarible: "",
         website: "",
       },
-      image:
-        "https://backalleycrossfit.com/wp-content/uploads/2016/09/profile-placeholder-300x300.png",
+      image: "https://backalleycrossfit.com/wp-content/uploads/2016/09/profile-placeholder-300x300.png",
       nfts: data.nfts.concat(demoNFTS),
     };
   } else {
@@ -234,8 +233,6 @@ export async function getServerSideProps({ req, res }) {
         console.log("found new nft, adding");
       }
     });
-    user.image =
-      "https://backalleycrossfit.com/wp-content/uploads/2016/09/profile-placeholder-300x300.png";
   }
 
   //update db with this info

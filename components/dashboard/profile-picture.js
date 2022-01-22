@@ -20,9 +20,9 @@ const ProfilePicture = ({ userData, setUserData }) => {
     setUserData({...userData, image: path})
   }
 
-  /** Ask for confirmation, then replace the users image with empty image */
+  /** then replace the users image with empty image */
   const removePicture = () => {
-
+    setUserData({...userData, image: "https://backalleycrossfit.com/wp-content/uploads/2016/09/profile-placeholder-300x300.png"})
   };
 
   const [showModel, setShowModel] = useState(false)
@@ -32,16 +32,16 @@ const ProfilePicture = ({ userData, setUserData }) => {
     <>
     <div className="flex items-center justify-between gap-x-4 pb-8">
       <div className="w-1/5 shrink-0">
-        <img  className="shadow-lg rounded-full border" src={userData.image} />
+        <img  className="rounded-full border-2" src={userData.image} />
       </div>
       <button className="w-full" onClick={uploadPicture}>
       <div className="bg-blue-500 w-full px-4 py-2 rounded-lg text-center font-bold text-white">
         Upload Picture
       </div>
       </button>
-      <div className="bg-gray-300 w-full px-4 py-2 rounded-lg text-center font-bold">
+      <button onClick={removePicture} className="bg-gray-300 w-full px-4 py-2 rounded-lg text-center font-bold">
         Remove
-      </div>
+      </button>
     </div>
     <Modal title={"Upload Profile Picture"} onClose={() => setShowModel(false)} show={showModel}>
       <FileUpload onFileUpload={onFileUpload}/>
