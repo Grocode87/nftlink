@@ -1,28 +1,55 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const FileUpload = ({onFileUpload}) => {
     const inputRef = useRef(null);
+    const dropRef = useRef(null);
+
     const [image, setImage] = useState(null)
     const [file, setFile] = useState(null)
 
+    const [errorMessage, setErrorMessage] = useState("")
+
+    useEffect(() => {
+        let div = dropRef.current
+        div.addEventListener('dragenter', handleDragIn)
+        div.addEventListener('dragleave', handleDragLeave)
+        div.addEventListener('dragover', handleDrag)
+        div.addEventListener('drop', handleDrop)
+       
+    }, [])
     const openExplorer = () => {
+        setErrorMessage("")
         inputRef.current.click();
     }
 
-    const onDragged = () => {
-        console.log("file dragged in")
+    const handleDragIn = (e) => {e.preventDefault()}
+    const handleDragLeave = (e) => {e.preventDefault()}
+    const handleDrag = (e) => {e.preventDefault()}
+
+    const handleDrop = (e) => {
+        e.preventDefault()
+
+        const file = e.dataTransfer.files[0]
+        processFileInput(file)
     }
 
     const handleFileInput = (e) => {
-        console.log("file selected")
         const file = e.target.files[0]
+        processFileInput(file)
+    }
 
-        if(file.size > 1024) {
+    const processFileInput = (file) => {
+        console.log(file.size)
+        if(file.size > 1000000) {
             // file too large, return error
-        } else if(file.type != "image/jpeg" || file.type != "image/png") {
-            // Wrong file format, return error
+            setErrorMessage("Please choose a file smaller than 1mb")
+            return
+        } else if(file.type != "image/jpeg" && file.type != "image/png") {
+            setErrorMessage("Please choose a jpg file")
+            return
         }
 
+        setErrorMessage("")
         setImage(URL.createObjectURL(file))
         setFile(file)
     }
@@ -36,7 +63,10 @@ const FileUpload = ({onFileUpload}) => {
         <div className="w-full h-full pt-2 pb-4">
                 {!image ? (
             <button className="h-full w-full hover:bg-gray-100" onClick={openExplorer}>
-                <div className="h-full flex flex-col justify-center items-center border-2">
+                <div className="h-full flex flex-col justify-center items-center border-2" onDrop={handleDrop} ref={dropRef}>
+                    {errorMessage && (
+                        <p className="pb-2 text-red-600">{errorMessage}</p>
+                    )}
                     <p className="text-lg pb-2">Select Image to upload</p>
                     <p className="text-gray-600 text-sm">or Drag and Drop here</p>
                 </div>
