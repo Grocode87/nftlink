@@ -86,7 +86,7 @@ const Appearance = ({ userData, setUserData }) => {
         <p className="text-2xl font-semibold pb-4">Profile</p>
         <div className="bg-white rounded-xl border shadow-sm p-4">
           <p className="pb-2">Profile Picture</p>
-          <ProfilePicture userData={userData} />
+          <ProfilePicture userData={userData} setUserData={setUserData}/>
           <p className="pb-2">Profile Title</p>
           <input
             className="w-full border rounded-md p-2 border-gray-300 hover:border-gray-500"

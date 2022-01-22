@@ -62,12 +62,12 @@ const Dashboard = ({ user }) => {
       <div className="fixed w-full shadow-lg z-50 bg-white">
         <div className="w-full flex items-center p-4">
           <Image
-            src="/landing-page/Logo.jpeg"
+            src="/images/logo-light.png"
             className="md:scale-100"
-            width={30}
-            height={30}
+            width={55}
+            height={35}
           />
-          <div className="text-3xl font-semibold pl-4">NFTinBio</div>
+          <div className="text-3xl font-semibold pl-4">Matrice</div>
         </div>
         <div className="flex items-center"></div>
         {tabs.map((tab) => {

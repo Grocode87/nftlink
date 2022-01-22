@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDocs, getFirestore } from 'firebase/firestore';
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { collection, getDoc, setDoc, doc, query, where } from "firebase/firestore"; 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -18,6 +19,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
+
+const storage = getStorage()
+const profileImageRef = ref(storage, "images")
 
 const setItem = async (user) => {
   // Add a new document in collection "cities"
@@ -67,6 +71,20 @@ const getItemByAddress = async (address) => {
   }
 }
 
+const uploadImage = async (image, address) => {
+  const newImageRef = ref(profileImageRef, address)
+
+  const snapshot = await uploadBytes(newImageRef, image)
+  
+
+  console.log("Image uploaded to firebase")
+  const downloadUrl = await getDownloadURL(snapshot.ref)
+
+  console.log("fetched download url")
+  return downloadUrl
+  
+}
 
 
-export { db, setItem, getItemByAddress, getItemByUsername };
+
+export { db, setItem, getItemByAddress, getItemByUsername, uploadImage };

@@ -25,7 +25,7 @@ const GalleryPreview = ({ userData }) => {
         <div className="w-full">
           <div className="pt-12 space-y-2 flex flex-col items-center">
             <div className="px-16">
-              <img className="rounded-full" src={userData.image} />
+              <img className="rounded-full border-white border-8" src={userData.image} />
             </div>
             <div className="px-4">
               <p className="text-2xl font-bold">{userData.displayName}</p>

@@ -70,7 +70,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>NFTInBio | Show off your NFTs</title>
+        <title>Matrice | One Link for all your NFTs</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
