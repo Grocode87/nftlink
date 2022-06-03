@@ -4,16 +4,16 @@ import { themes } from "./dashboard/appearance";
 const Banner = ({ height, extraStyles, userData }) => {
   const [colors, setColors] = useState([]);
   useEffect(() => {
-    let c;
+    let color;
     themes.forEach((theme) => {
       if (theme.id == userData.theme) {
-        c = theme.colors;
+        color = theme.colors;
       }
     });
-    if (!c) {
-      c = themes[2].colors;
+    if (!color) {
+      color = themes[2].colors;
     }
-    setColors(c);
+    setColors(color);
   }, [userData]);
 
   return (
